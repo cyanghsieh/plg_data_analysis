@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<header>當前戰績排行榜</header>
+<section class="count section-bg">
+    <table border="1">
+        <tr>
+            <td>隊名</td>
+            <td>已賽</td>
+            <td>勝場</td>
+            <td>勝率</td>
+            <td>主場勝</td>
+            <td>主場戰</td>
+            <td>客場勝</td>
+            <td>客場戰</td>
+        </tr>
+
+        {% for item in results %}
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
+            <td>{{item[5]}}</td>
+            <td>{{item[6]}}</td>
+            <td>{{item[7]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section>
+    <a href="average_pts">得分排行榜</a><br>
+    <a href="average_reb">篮板排行榜</a><br>
+    <a href="average_ast">助攻排行榜</a><br>
+    <a href="average_blk">阻攻排行榜</a><br>
+    <a href="average_stl">抄截排行榜</a><br>
+</section>
