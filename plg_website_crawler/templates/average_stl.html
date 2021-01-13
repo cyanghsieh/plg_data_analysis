@@ -1,11 +1,27 @@
 <!DOCTYPE html>
-<header>抄截排行榜前10名</header>
+<head>
+    <meta charset="utf-8">
+    <title>P. League+ 數據分析可視化</title>
+    <!-- 引入 lib/echarts.custom.min.js -->
+    <script src="static/echarts.js"></script>
+</head>
+<section>
+    <<a href="index">Home</a>>
+    <<a href="average_pts">得分排行榜</a>>
+    <<a href="average_reb">籃板排行榜</a>>
+    <<a href="average_ast">助攻排行榜</a>> 
+    <<a href="average_blk">阻攻排行榜</a>>
+    <<a href="average_stl">抄截排行榜</a>>
+</section>
+<br>
 <section class="count section-bg">
     <table border="1">
         <tr>
             <td>隊名</td>
             <td>人名</td>
+            <td>出賽場次</td>
             <td>場均抄截</td>
+            <td>總抄截</td>
         </tr>
 
         {% for item in results %}
@@ -13,9 +29,60 @@
             <td>{{item[0]}}</td>
             <td>{{item[1]}}</td>
             <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
         </tr>
         {% endfor %}
     </table>
 </section>
+<html>
 
-<a href="index.html">Home</a>
+<body>
+    <div id="main" style="width: 90%;height:400px;"></div>
+    <script>
+        // 绘制图表。
+        echarts.init(document.getElementById('main')).setOption({
+                title: { text: '場均抄截排行榜' },
+                xAxis: {
+                    type: 'category',
+                    data: {{ name | tojson}}},
+                yAxis: [{
+                    type: 'value',
+                    name: '場均抄截',
+                    min: 0,
+                    max: 10,
+                    position: 'left',
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }, {
+                    type: 'value',
+                    name: '總抄截',
+                    min: 0,
+                    max: 250,
+                    position: 'right',
+                    offset: 20,
+                    axisLabel: {
+                        formatter: '{value}'
+                    }
+                }],
+                series: [{
+                    data: {{ stl| tojson}},
+                yAxisIndex: 0,
+                type: 'bar'}, {
+                    data: {{ totalStl | tojson}},
+                yAxisIndex: 1,
+                type: 'line'}],
+                tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            }}
+            );
+    </script>
+</body>
+
+</html>
+
+<a href="index">Home</a>

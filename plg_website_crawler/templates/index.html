@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>P. League+ 數據分析可視化</title>
+    <!-- 引入 lib/echarts.custom.min.js -->
+    <script src="static/echarts.js"></script>
+</head>
+<section>
+    <<a href="index">Home</a>>
+    <<a href="average_pts">得分排行榜</a>>
+    <<a href="average_reb">籃板排行榜</a>>
+    <<a href="average_ast">助攻排行榜</a>> 
+    <<a href="average_blk">阻攻排行榜</a>>
+    <<a href="average_stl">抄截排行榜</a>>
+</section>
+<br>
 <header>當前戰績排行榜</header>
 <section class="count section-bg">
     <table border="1">
@@ -31,37 +46,3 @@
 <br>
 
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>myProject</title>
-    <!-- 引入 lib/echarts.custom.min.js -->
-    <script src="static/echarts.js"></script>
-</head>
-<body>
-    <div id="main" style="width: 600px;height:400px;"></div>
-    <script>
-        // 绘制图表。
-        echarts.init(document.getElementById('main')).setOption({
-            series: {
-                type: 'pie',
-                data: [
-                    {name: 'A', value: 1212},
-                    {name: 'B', value: 2323},
-                    {name: 'C', value: 1919}
-                ]
-            }
-        });
-    </script>
-</body>
-</html>
-
-<br>
-<br>
-<br>
-<section>
-    <a href="average_pts">得分排行榜</a><br>
-    <a href="average_reb">篮板排行榜</a><br>
-    <a href="average_ast">助攻排行榜</a><br>
-    <a href="average_blk">阻攻排行榜</a><br>
-    <a href="average_stl">抄截排行榜</a><br>
-</section>
