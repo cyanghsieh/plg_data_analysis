@@ -1,3 +1,5 @@
 .vscode/
 plg_website_crawler/__pycache__
 plg_website_crawler/.venv
+plg_website_crawler/static/echarts.js
+plg_website_crawler/static/hicharts.js
